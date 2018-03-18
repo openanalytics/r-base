@@ -34,7 +34,7 @@ ENV LANG en_US.UTF-8
 RUN echo "deb https://cloud.r-project.org/bin/linux/ubuntu xenial/" > /etc/apt/sources.list.d/cran.list
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 
-ENV R_BASE_VERSION 3.4.3
+ENV R_BASE_VERSION 3.4.4
 
 ## Now install R and littler, and create a link for littler in /usr/local/bin
 ## Also set a default CRAN repo, and make sure littler knows about it too
