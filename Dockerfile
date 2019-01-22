@@ -31,7 +31,7 @@ RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 
-RUN echo "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/" > /etc/apt/sources.list.d/cran.list
+RUN echo "deb https://lib.ugent.be/CRAN/bin/linux/ubuntu/ bionic-cran35/" > /etc/apt/sources.list.d/cran.list
 # not the proxy for gpg
 RUN apt-key adv --keyserver keyserver.ubuntu.com --keyserver-options http-proxy=http://webproxy.openanalytics.eu:8080 --recv-keys E084DAB9
 
