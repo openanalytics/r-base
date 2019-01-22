@@ -32,9 +32,8 @@ ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 
 RUN echo "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/" > /etc/apt/sources.list.d/cran.list
-# proxy for gpg
-RUN echo 'Acquire::http::Proxy "http://webproxy.openanalytics.eu:8080";' >> /etc/apt/apt.conf
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+# not the proxy for gpg
+RUN apt-key adv --keyserver keyserver.ubuntu.com --keyserver-options http-proxy=http://webproxy.openanalytics.eu:8080 --recv-keys E084DAB9
 
 ENV R_BASE_VERSION 3.5.2
 ENV DEBIAN_FRONTEND noninteractive
