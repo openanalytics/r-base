@@ -31,8 +31,10 @@ RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 
-RUN echo "deb https://lib.ugent.be/CRAN/bin/linux/ubuntu/ bionic-cran35/" > /etc/apt/sources.list.d/cran.list
-# not the proxy for gpg
+RUN echo 'Acquire::https::Proxy "http://webproxy.openanalytics.eu:8080";' >> /etc/apt/apt.conf
+RUN echo "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/" > /etc/apt/sources.list.d/cran.list
+
+# note the proxy for gpg
 RUN apt-key adv --keyserver keyserver.ubuntu.com --keyserver-options http-proxy=http://webproxy.openanalytics.eu:8080 --recv-keys E084DAB9
 
 ENV R_BASE_VERSION 3.5.2
@@ -41,7 +43,7 @@ ENV DEBIAN_FRONTEND noninteractive
 # Now install R and littler, and create a link for littler in /usr/local/bin
 # Also set a default CRAN repo, and make sure littler knows about it too
 RUN apt-get update \
-	&& apt-get install -y --no-install-recommends \
+	&& https_proxy=http://webproxy.openanalytics.eu:8080 apt-get install -y --no-install-recommends \
 		littler\
                 r-cran-littler \
 		r-base=${R_BASE_VERSION}* \
