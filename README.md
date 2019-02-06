@@ -20,4 +20,4 @@ To build the image from the Dockerfile, navigate into the root directory of this
 sudo docker build -t openanalytics/r-base .
 ```
 
-(c) Copyright Open Analytics NV, 2016-2018.
+(c) Copyright Open Analytics NV, 2016-2019.
