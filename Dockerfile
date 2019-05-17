@@ -10,8 +10,11 @@ RUN useradd docker \
 	&& chown docker:docker /home/docker \
 	&& addgroup docker staff
 
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN apt-get update \ 
 	&& apt-get install -y --no-install-recommends \
+	    apt-utils \
 		ed \
 		less \
 		locales \
@@ -37,7 +40,6 @@ RUN echo "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/" > /et
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 
 ENV R_BASE_VERSION 3.5.3
-ENV DEBIAN_FRONTEND noninteractive
 
 # Now install R and littler, and create a link for littler in /usr/local/bin
 # Also set a default CRAN repo, and make sure littler knows about it too
