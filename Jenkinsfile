@@ -7,6 +7,7 @@ pipeline {
     }
 
     options {
+        authorizationMatrix(['hudson.model.Item.Build:consultants', 'hudson.model.Item.Read:consultants'])
         buildDiscarder(logRotator(numToKeepStr: '3'))
     }
 
