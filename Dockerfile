@@ -37,7 +37,7 @@ ENV LANG en_US.UTF-8
 RUN echo "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/" > /etc/apt/sources.list.d/cran.list
 
 # note the proxy for gpg
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
 
 ENV R_BASE_VERSION 3.6.3
 
