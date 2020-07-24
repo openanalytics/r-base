@@ -60,7 +60,7 @@ pipeline {
                                 
                                 sh "docker push ${env.NS}/${env.IMAGE}:${env.VERSION}"
                                 sh "docker push ${env.NS}/${env.IMAGE}:${env.shortCommit}"
-                                sh "docker push ${env.NS}/rdepot-${MODULE}:latest"
+                                sh "docker push ${env.NS}/${env.IMAGE}:latest"
                             }
                    
             }
