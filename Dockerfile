@@ -1,6 +1,6 @@
 # largely based on rocker r-base image
 
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 LABEL maintainer="Tobias Verbeke <tobias.verbeke@openanalytics.eu>"
 
@@ -12,7 +12,7 @@ RUN useradd docker \
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update \ 
+RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
 	    apt-utils \
 		ed \
@@ -34,12 +34,12 @@ RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 
-RUN echo "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/" > /etc/apt/sources.list.d/cran.list
+RUN echo "deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/" > /etc/apt/sources.list.d/cran.list
 
 # note the proxy for gpg
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 
-ENV R_BASE_VERSION 4.0.2
+ENV R_BASE_VERSION 4.0.3
 
 # Now install R and littler, and create a link for littler in /usr/local/bin
 # Also set a default CRAN repo, and make sure littler knows about it too
