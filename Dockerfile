@@ -46,8 +46,9 @@ ENV R_BASE_VERSION 4.0.3
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
 		littler \
-        r-cran-littler \
+                r-cran-littler \
 		r-base=${R_BASE_VERSION}* \
+                r-base-core=${R_BASE_VERSION}* \
 		r-base-dev=${R_BASE_VERSION}* \
 		r-recommended=${R_BASE_VERSION}* \
         && echo 'options(repos = c(CRAN = "https://cloud.r-project.org/"), download.file.method = "libcurl")' >> /etc/R/Rprofile.site \
