@@ -39,7 +39,7 @@ RUN echo "deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/" > /etc
 # note the proxy for gpg
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 
-ENV R_BASE_VERSION 4.0.3
+ENV R_BASE_VERSION 4.0.4
 
 # Now install R and littler, and create a link for littler in /usr/local/bin
 # Also set a default CRAN repo, and make sure littler knows about it too
