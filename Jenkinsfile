@@ -16,7 +16,7 @@ pipeline {
         IMAGE = "r-base"
         NS = "openanalytics"
         REG = "196229073436.dkr.ecr.eu-west-1.amazonaws.com"
-        VERSION = '4.0.4'
+        VERSION = '4.0.5'
         DOCKER_BUILDKIT = '1'
     }
 
